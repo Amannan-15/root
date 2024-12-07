@@ -1,60 +1,71 @@
 package com.project.backend;
 
- class Shift{
-    private int shiftID;
-    private String employeeName;
-    private String Date;
-    private String startTime;
-    private String endTime;
+/**
+ * Represents a work shift assigned to an employee.
+ */
+public class Shift {
+    private int shiftId;           // Unique ID for the shift
+    private String employeeName;   // Name of the employee assigned to the shift
+    private String date;           // Date of the shift (e.g., "2024-11-30")
+    private String startTime;      // Start time of the shift (e.g., "9:00 AM")
+    private String endTime;        // End time of the shift (e.g., "5:00 PM")
 
-    public Shift(int shiftID, String employeeName, String Date, String startTime, String endTime){
-        this.shiftID = shiftID;
+    // Constructor
+    public Shift(int shiftId, String employeeName, String date, String startTime, String endTime) {
+        this.shiftId = shiftId;
         this.employeeName = employeeName;
-        this.Date = Date;
+        this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
     }
-    
-    //getters
-    public String getDate() {
-        return Date;
+
+    // Getters
+    public int getShiftId() {
+        return shiftId;
     }
+
     public String getEmployeeName() {
         return employeeName;
     }
-    public String getEndTime() {
-        return endTime;
+
+    public String getDate() {
+        return date;
     }
-    public int getShiftID() {
-        return shiftID;
-    }
+
     public String getStartTime() {
         return startTime;
     }
 
-    //setters
-    public void setDate(String date) {
-        Date = date;
+    public String getEndTime() {
+        return endTime;
     }
+
+    // Setters
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+
+    public void setDate(String date) {
+        this.date = date;
     }
-    public void setShiftID(int shiftID) {
-        this.shiftID = shiftID;
-    }
+
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public String toString(){
-        return shiftID + " | " + employeeName + " | " + Date + " | " + startTime + " | " + endTime;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setShiftId(int shiftId) {
+        //System.out.println("setShiftId called with: " + shiftId);
+        this.shiftId = shiftId;
     }
     
-    public static void main(String[] args){
-        Shift newShift = new Shift(1, "Andres", "25/09/2024" , "12:30 PM", "9:30 AM");
-        System.out.println(newShift.toString());
+    
+    // toString method for displaying shift details
+    @Override
+    public String toString() {
+        return String.format("%d | %s | %s | %s | %s", shiftId, employeeName, date, startTime, endTime);
     }
 }
