@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 public class Main extends Application {
-    private String currentFilePath = null; // Tracks the currently loaded or created CSV file
+    private String currentFilePath = null; // Tracks the currently loaded or created CSV file 
     private ShiftManager shiftManager = new ShiftManager();
     private TableView<Shift> table;
 

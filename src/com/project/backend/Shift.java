@@ -1,16 +1,12 @@
 package com.project.backend;
 
-/**
- * Represents a work shift assigned to an employee.
- */
 public class Shift {
-    private int shiftId;           // Unique ID for the shift
-    private String employeeName;   // Name of the employee assigned to the shift
-    private String date;           // Date of the shift (e.g., "2024-11-30")
-    private String startTime;      // Start time of the shift (e.g., "9:00 AM")
-    private String endTime;        // End time of the shift (e.g., "5:00 PM")
+    private int shiftId;           
+    private String employeeName;   
+    private String date;           
+    private String startTime;      
+    private String endTime;        
 
-    // Constructor
     public Shift(int shiftId, String employeeName, String date, String startTime, String endTime) {
         this.shiftId = shiftId;
         this.employeeName = employeeName;
@@ -19,7 +15,6 @@ public class Shift {
         this.endTime = endTime;
     }
 
-    // Getters
     public int getShiftId() {
         return shiftId;
     }
@@ -40,7 +35,6 @@ public class Shift {
         return endTime;
     }
 
-    // Setters
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
@@ -63,7 +57,6 @@ public class Shift {
     }
     
     
-    // toString method for displaying shift details
     @Override
     public String toString() {
         return String.format("%d | %s | %s | %s | %s", shiftId, employeeName, date, startTime, endTime);

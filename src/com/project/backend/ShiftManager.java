@@ -7,24 +7,20 @@ public class ShiftManager {
     private List<Shift> shifts = new ArrayList<>();
     private int nextId = 1;
 
-    // Add a new shift
     public Shift addShift(String employeeName, String date, String startTime, String endTime) {
         Shift shift = new Shift(nextId++, employeeName, date, startTime, endTime);
         shifts.add(shift);
         return shift;
     }
 
-    // Get all shifts
     public List<Shift> getShifts() {
         return shifts;
     }
 
-    // Find a shift by ID
     public Shift findShiftById(int id) {
         return shifts.stream().filter(shift -> shift.getShiftId() == id).findFirst().orElse(null);
     }
 
-    // Update an existing shift
     public boolean updateShift(int id, String employeeName, String date, String startTime, String endTime) {
         Shift shift = findShiftById(id);
         if (shift != null) {
@@ -37,22 +33,18 @@ public class ShiftManager {
         return false;
     }
 
-    // Delete a shift by ID
     public boolean deleteShift(int id) {
         boolean removed = shifts.removeIf(shift -> shift.getShiftId() == id);
         if (removed) {
-            // Reassign IDs to maintain sequential order
             for (int i = 0; i < shifts.size(); i++) {
                 shifts.get(i).setShiftId(i + 1);
             }
-            nextId = shifts.size() + 1; // Update nextId to the next available ID
+            nextId = shifts.size() + 1; 
         }
         return removed;
     }
     
    
-
-    // Display all shifts
     public void displayAllShifts() {
         if (shifts.isEmpty()) {
             System.out.println("No shifts available.");
@@ -61,7 +53,6 @@ public class ShiftManager {
         }
     }
 
-    // Save shifts to a CSV file
     public void saveToCsv(String filePath) {
         List<String[]> csvData = new ArrayList<>();
         csvData.add(new String[]{"ShiftID", "EmployeeName", "Date", "StartTime", "EndTime"});
@@ -77,7 +68,6 @@ public class ShiftManager {
         CSVHandler.writeToCSV(filePath, csvData);
     }
 
-    // Load shifts from a CSV file
     public void loadFromCsv(String filePath) {
         List<String[]> csvData = CSVHandler.readFromCSV(filePath);
         shifts.clear();
