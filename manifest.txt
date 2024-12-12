@@ -1,2 +1,0 @@
-Main-Class: com.project.frontend.Main
-Class-Path: "C:/Program Files/Java/javafx-sdk-23.0.1/lib/*"
