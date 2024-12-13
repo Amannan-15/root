@@ -49,7 +49,7 @@ public class ShiftManager {
         if (shifts.isEmpty()) {
             System.out.println("No shifts available.");
         } else {
-            shifts.forEach(System.out::println);
+            shifts.forEach(shift -> System.out.println(shift));
         }
     }
 
